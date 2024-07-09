@@ -38,32 +38,13 @@ $(document).ready(function () {
   /////////////////////////////////////////////////
 
   // TODO 1: create a new shape object and add it to the array
-  var shape = {
-    color: "blue",
-    shape: "circle",
-    repeat: 3,
-  }
-dataShapes.push(shape);
+  
+
   // TODO 2: add a new property to all data shapes
-  dataShapes.push(goodBehavior);
-  for(var i = 0; i < dataShapes; i++){
-    var currentShape;
-    currentShape += dataShapes
-  }
-  if(color === "red"){
-    goodBehavior === "bounce"
-  }
-  else if (color === "blue"){
-    goodBehavior === "blink"
-  }
-  else {
-    goodBehavior === "spin";
-  }
+  
+
   // TODO 3-a: add a function that handles the static display type
-  function handleStatic(data){
-    setBackgroundWithObject(data)
-  }
-  animationDetails.displayType = 1; 
+  
 
   // TODO 4-a: add a function that handles the good display type
   
@@ -153,7 +134,7 @@ dataShapes.push(shape);
     $("#shape").css("top", "150px");
     $("#shape").css("transform", "rotate(0deg)");
     $("#shape").html(
-      `<p>${shapeData.color}</p> <p>${shapeData.shape}</p> <p>${shapeData.repeat}x${shapeData.repeat}</p>`
+      `<p>${shapeData.color}</p> <p>${shapeData.shape}</p> <p>${shapeData.repeat}x${shapeData.repeat}</p> <p>${shapeData.goodBehavior}</p>`
     );
 
     $("#info-bar").text(`Current index: ${currentIndex}`);
