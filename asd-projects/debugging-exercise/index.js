@@ -96,7 +96,7 @@ function update(){
         moveCircle(circle);
 
         // bounce the circle, if it hits a wall
-        bounceCircle(circle);
+        bounceCircle(circle.x, circle.y);
 
         // redraw the circle on the screen after it moves
         updateCircleOnScreen(circle);
@@ -140,7 +140,7 @@ function bounceCircle(circle){
 
 // this redraws the circle's position on the screen
 function updateCircleOnScreen(circle){
-    maxCircles = 10git commit -a -m "saving debugging exercise";
+    maxCircles = 10;
 
     // these lines redraw the circle's position
     $(circle.id).css('left', circle.x);
