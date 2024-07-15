@@ -89,7 +89,7 @@ function update(){
     // loop over the circles array. We use the maxCircles variable instead of circles.length
     // to make seeing issues in the debugger slightly easier (in practice, you should use
     // circles.length, but do NOT change it here)
-    for (var i = 0; i < maxCircles; i++){
+    for (var i = 0; i < circles.length; i++){
         var circle = circles[i];
 
         // move the circle
@@ -140,7 +140,7 @@ function bounceCircle(circle){
 
 // this redraws the circle's position on the screen
 function updateCircleOnScreen(circle){
-    maxCircles = 0;
+    maxCircles = 10git commit -a -m "saving debugging exercise";
 
     // these lines redraw the circle's position
     $(circle.id).css('left', circle.x);
