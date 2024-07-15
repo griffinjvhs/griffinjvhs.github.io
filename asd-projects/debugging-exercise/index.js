@@ -93,13 +93,13 @@ function update(){
         var circle = circles[i];
 
         // move the circle
-        moveCircle(maxCircles);
+        moveCircle(circle);
 
         // bounce the circle, if it hits a wall
-        bounceCircle(maxCircles);
+        bounceCircle(circle);
 
         // redraw the circle on the screen after it moves
-        updateCircleOnScreen(maxCircles);
+        updateCircleOnScreen(circle);
     }
 }
 
@@ -118,22 +118,22 @@ function bounceCircle(circle){
 
     // this bounces off the left wall
     if (circle.x < 0){
-        circle.x += circle.speedX;
+        circle.x -= circle.speedX;
         circle.speedX *= -1;
     }
     // this bounces off the right wall
     else if (circle.x > boardWidth){
-        circle.x += circle.speedX;
+        circle.x -= circle.speedX;
         circle.speedX *= -1;
     }
     // this bounces off the top wall
     if (circle.y < 0){
-        circle.y += circle.speedY;
+        circle.y -= circle.speedY;
         circle.speedY *= -1;
     }
     // this bounces off the bottom wall
     else if (circle.y > boardHeight){
-        circle.y += circle.speedY;
+        circle.y -= circle.speedY;
         circle.speedX *= -1;
     }
 }
