@@ -366,10 +366,18 @@ function getRandomAvailablePosition() {
     not occupied by a snakeSquare in the snake's body. If it is then set 
     spaceIsAvailable to false so that a new position is generated.
     */
+
+    for (var i = 1; i => snake.body; i++){
+      if(apple <= snake.body.length - 1){
+        return true;
+      }
+        return spaceIsAvailable = false;
+      }
+    }
   }
 
   return randomPosition;
-}
+
 
 function calculateHighScore() {
   // retrieve the high score from session storage if it exists, or set it to 0
