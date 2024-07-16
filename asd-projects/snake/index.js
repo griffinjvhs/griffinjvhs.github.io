@@ -367,7 +367,7 @@ function getRandomAvailablePosition() {
     spaceIsAvailable to false so that a new position is generated.
     */
 
-    for (var i = 1; i < snake.body.length; i++) {
+    for (var i = 1; i < snake.body.legitngth; i++) {
       if (randomPosition.column >= snake.body[i].column && randomPosition.row >= snake.body[i].row) {
         spaceIsAvailable = false;
       }
