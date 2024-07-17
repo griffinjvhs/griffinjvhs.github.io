@@ -21,7 +21,7 @@ function resetAndRender() {
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
 
-  applyFilter()
+  applyFilter(reddify)
 
   // do not change the below line of code
   render($("#display"), image);
@@ -32,45 +32,71 @@ function applyAndRender() {
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2 & 4: Create the applyFilter function here
-function applyFilter(){
-for(var r = 0; r < image.length; r++){
-  var row = image[r];
-  for(var c = 0; c < row.length; c++){
-    var value = image[r][c];
-    var rgbString = image[2][2];
-    var rgbNumbers;
-    rgbStringToArray(rgbString)
-   
+function applyFilter(filterFunction) {
+  for (var r = 0; r < image.length; r++) {
+    var row = image[r];
+    for (var c = 0; c < row.length; c++) {
+      var rgbString = image[r][c];
+      var rgbNumbers = rgbStringToArray(rgbString);
+      filterFunction(rgbNumbers);
+      rgbString = rgbArrayToString(rgbNumbers);
+      image[r][c] = rgbString;
+    }
   }
 }
-}
+
+
 
 // TODO 7: Create the applyFilterNoBackground function
+function applyFilterNoBackground(){
+  var background = image[0][0];
+  for (var r = 0; r < image.length; r++) {
+    var row = image[r];
+    for (var c = 0; c < row.length; c++) {
+      // var rgbString = image[r][c];
+      var rgbNumbers = rgbStringToArray(rgbString);
+      filterFunction(rgbNumbers);
+      rgbString = rgbArrayToString(rgbNumbers);
+      image[r][c] = rgbString;
+      // if (rgbString === background){
+      // applyFilter();
+      // }
+      // else{
+      //   applyFilterNoBackground();
+      // }
+    }
+  }
 
+
+
+}
+  
 
 // TODO 5: Create the keepInBounds function
-function keepInBounds (n){
-  // if (n > 0){
-  //   return 0;
-  // }
-  // if (n > 255){
-  //   return 255;
-  // }
-  // if (n < 0 && n < 255){
-  //   return n
-  // }
- var result = Math.min(n, 0)
- var result2 = Math.max (n, 255)
- var temp = result
+function keepInBounds(num){
+var x = 255;
+var y = 0;
+
+var result1 = Math.max(x, num);
+var result2 = Math.min(y, result1);
+return result2;
 }
- console.log(keepInBounds(-30))
+
+
 
 // TODO 3: Create reddify function
-function reddify(mario){
-mario[RED] = 200;
+function reddify(array) {
+ array[RED] = 200;
 }
 
 // TODO 6: Create more filter functions
-
+function decreaseBlue(blueArray){
+// blueArray[BLUE] - 50;
+blueArray[BLUE] = keepInBounds(blueArray[BLUE] - 50);
+}
+function increaseGreenByBlue(greenArray){
+// greenArray[GREEN] + greenArray[BLUE];
+greenArray[GREEN] = keepInBounds(greenArray[GREEN] + greenArray[BLUE]);
+}
 
 // CHALLENGE code goes below here
