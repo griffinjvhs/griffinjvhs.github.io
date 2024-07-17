@@ -22,6 +22,8 @@ function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
 
   applyFilter(reddify)
+  applyFilterNoBackground(increaseGreenByBlue)
+  applyFilterNoBackground(decreaseBlue)
 
   // do not change the below line of code
   render($("#display"), image);
@@ -75,8 +77,8 @@ function keepInBounds(num) {
   var x = 255;
   var y = 0;
 
-  var result1 = Math.max(x, num);
-  var result2 = Math.min(y, result1);
+  var result1 = Math.max(y, num);
+  var result2 = Math.min(x, result1);
   return result2;
 }
 
