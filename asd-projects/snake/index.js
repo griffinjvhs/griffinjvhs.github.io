@@ -242,7 +242,7 @@ function hasCollidedWithSnake() {
   
   */
   for(var i = 1; i < snake.body.length; i++){
-    if (snake.head.column === snake.body[i].column && snake.head.row === snake.body[i]){
+    if (snake.head.column === snake.body[i].column && snake.head.row === snake.body[i].row){
       return true;
     }
   }
