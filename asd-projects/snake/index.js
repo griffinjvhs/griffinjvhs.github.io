@@ -241,12 +241,15 @@ function hasCollidedWithSnake() {
   head and each part of the snake's body also knows its own row and column.
   
   */
-  if (snake.head <= snake.body.length - 1) {
-    return true;
+  for(var i = 1; i < snake.body.length; i++){
+    if (snake.head.column === snake.body[i].column && snake.head.row === snake.body[i].row){
+      return true;
+    }
   }
+  
   return false;
 }
-
+// if (snake.body.column === snake.body && snake.body.row === snake.body)
 function endGame() {
   // stop update function from running
   clearInterval(updateInterval);
@@ -367,8 +370,8 @@ function getRandomAvailablePosition() {
     spaceIsAvailable to false so that a new position is generated.
     */
 
-    for (var i = 1; i < snake.body.legitngth; i++) {
-      if (randomPosition.column >= snake.body[i].column && randomPosition.row >= snake.body[i].row) {
+    for (var i = 1; i < snake.body.length; i++) {
+      if (randomPosition.column === snake.body[i].column && randomPosition.row === snake.body[i].row) {
         spaceIsAvailable = false;
       }
     }
