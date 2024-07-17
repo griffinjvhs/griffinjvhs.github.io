@@ -48,8 +48,8 @@ function applyFilter(filterFunction) {
 
 
 // TODO 7: Create the applyFilterNoBackground function
-function applyFilterNoBackground(background){
-  background = image[0][0];
+function applyFilterNoBackground(filterFunction){
+  var background = image[0][0];
   for (var r = 0; r < image.length; r++) {
     var row = image[r];
     for (var c = 0; c < row.length; c++) {
@@ -61,9 +61,7 @@ function applyFilterNoBackground(background){
       // if (rgbString !== background){
       // applyFilterNoBackground();
       // }
-      // else{
-      //   applyFilter();
-      // }
+      // 
     }
   }
 
