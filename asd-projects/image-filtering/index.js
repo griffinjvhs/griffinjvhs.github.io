@@ -48,21 +48,21 @@ function applyFilter(filterFunction) {
 
 
 // TODO 7: Create the applyFilterNoBackground function
-function applyFilterNoBackground(){
-  var background = image[0][0];
+function applyFilterNoBackground(background){
+  background = image[0][0];
   for (var r = 0; r < image.length; r++) {
     var row = image[r];
     for (var c = 0; c < row.length; c++) {
-      // var rgbString = image[r][c];
+      var rgbString = image[r][c];
       var rgbNumbers = rgbStringToArray(rgbString);
       filterFunction(rgbNumbers);
       rgbString = rgbArrayToString(rgbNumbers);
       image[r][c] = rgbString;
-      // if (rgbString === background){
-      // applyFilter();
+      // if (rgbString !== background){
+      // applyFilterNoBackground();
       // }
       // else{
-      //   applyFilterNoBackground();
+      //   applyFilter();
       // }
     }
   }
