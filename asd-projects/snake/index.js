@@ -120,10 +120,10 @@ function checkForNewDirection(event) {
   function moveSnake() {
     for (var i = snake.body.length - 1; i >= 1; i--) {
       var snakeSquare = snake.body[i];
-      var nextSnakeSquare = snakeSquare[i - 1];
-      var nextRow = snakeSquare.row;
-      var nextColumn = snakeSquare.column;
-      var nextDirection = snakeSquare.direction;
+      var nextSnakeSquare = snake.body[i - 1];
+      var nextRow = nextSnakeSquare.row;
+      var nextColumn = nextSnakeSquare.column;
+      var nextDirection = nextSnakeSquare.direction;
   
       snakeSquare.direction = nextDirection;
       snakeSquare.row = nextRow;
