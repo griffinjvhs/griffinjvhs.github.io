@@ -107,19 +107,7 @@ function checkForNewDirection(event) {
   // console.log(snake.head.direction);     
 }
 
-function moveSnake() {
-  for (var i = snake.body.length - 1; i >= 1; i--) {
-    var snakeSquare = snake.body[i - 1];
-    var nextSnakeSquare = snakeSquare - 1;
-    var nextRow = snakeSquare.row - 1;
-    var nextColumn = snakeSquare.column - 1;
-    var nextDirection = snakeSquare.direction - 1;
 
-    snakeSquare.direction = nextDirection;
-    snakeSquare.row = nextRow;
-    snakeSquare.column = nextColumn;
-    repositionSquare(snakeSquare);
-  }
   /* 
   TODO 11: Move each part of the snake's body such that it's body follows the head.
   
@@ -129,7 +117,19 @@ function moveSnake() {
   column/row properties. 
   
   */
-
+  function moveSnake() {
+    for (var i = snake.body.length - 1; i >= 1; i--) {
+      var snakeSquare = snake.body[i];
+      var nextSnakeSquare = snakeSquare[i - 1];
+      var nextRow = snakeSquare.row;
+      var nextColumn = snakeSquare.column;
+      var nextDirection = snakeSquare.direction;
+  
+      snakeSquare.direction = nextDirection;
+      snakeSquare.row = nextRow;
+      snakeSquare.column = nextColumn;
+      repositionSquare(snakeSquare);
+    }
   //Before moving the head, check for a new direction from the keyboard input
   checkForNewDirection();
 
@@ -242,7 +242,7 @@ function hasCollidedWithSnake() {
   
   */
   for(var i = 1; i < snake.body.length; i++){
-    if (snake.head.column === snake.body[i].column && snake.head.row === snake.body[i].row){
+    if (snake.head.column === snake.body[i].column && snake.head.row === snake.body[i]){
       return true;
     }
   }
